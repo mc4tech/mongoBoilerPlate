@@ -5,6 +5,7 @@ module.exports = function (app) {
     app.get('/api/example', function (req, res) {
         db.Example.find({})
             .then(function (db) {
+                // console.log(db);
                 res.json(db);
             })
             .catch(function (err) {
@@ -12,8 +13,9 @@ module.exports = function (app) {
             });
     });
 
-    app.post('/api/example', function (req, res) {
-        db.Example.create(req.body)
+    app.post('/api/addexample', function (req, res) {
+        console.log(req.body)
+        db.Example.create(req.body.data)
             .then(function (db) {
                 res.json(db);
             })
