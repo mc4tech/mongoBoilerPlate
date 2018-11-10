@@ -24,10 +24,10 @@ module.exports = function (app) {
 
     app.put('/api/example', function (req, res) {
         db.Example.findOneAndUpdate({
-                itemID: req.body.itemID
+                todo: req.body.todo
             }, {
                 $set: {
-                    itemCount: req.body.itemCount
+                    completed: req.body.completed
                 }
             })
             .then(function (db) {
